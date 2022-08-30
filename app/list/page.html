@@ -1,0 +1,25 @@
+<div ng-controller="userListCtrl as list" ng-init="goToLink()">
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Height</th>
+                <th>Gender</th>
+                <th>Birth year</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="user in data.results">
+            <tr ng-click="goToLink(user.url)">
+                <td>{{user.name}}</td>
+                <td>{{user.height}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.birth_year}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <input type="button" value="Previous page" ng-disabled="!data.previous" ng-click="goToLink(data.previous)">
+        <input type="button" value="Next page" ng-disabled="!data.next" ng-click="goToLink(data.next)">
+    </div>
+    
+</div>
