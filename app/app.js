@@ -1,11 +1,11 @@
-var app = angular.module('app', ['ngDialog', 'ui.bootstrap', 'ngRoute' ]);
+var app = angular.module('app', ['ngRoute', 'usersList']);
 
 app.controller('appCtrl', () => {});
 
 app.config([
-    'ngDialogProvider', (ngDialogProvider) => {
-        ngDialogProvider.setDefaults({
-            showClose: false,
-        })
+    '$locationProvider', '$routeProvider',
+    ($locationProvider, $routeProvider) => {
+        $locationProvider.hashPrefix('');
+        $routeProvider.otherwise({redirectTo: '/people'});
     }
 ]);

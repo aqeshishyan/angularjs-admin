@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app" ng-controller="appCtrl">
+<html lang="en" ng-app="app">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -15,8 +15,7 @@
     <script data-require="angular-ui-bootstrap@2.5.0" data-semver="2.5.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src='lib/ng-dialog/js/ngDialog.js'></script>
     <script src='app.js'></script>
-    <script src='list/userListCtrl.js'></script>
-    <script src='info/userInfoDialog.js'></script>
-    <div ng-include="'/list/page.html'"></div>
+    <script src='list/usersListCtrl.js'></script>
+    <div ng-view></div>
 </body>
 </html>
