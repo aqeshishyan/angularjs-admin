@@ -1,0 +1,12 @@
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+th {
+    padding: 5px;
+}
+
+.bold {
+    font-weight: bolder;
+}

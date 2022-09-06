@@ -1,25 +1,45 @@
-<div ng-controller="usersListCtrl" ng-init="goToLink()">
-    <table border="2">
+<div ng-controller="usersListCtrl" ng-init="fetchData()" class="center">
+    <h2>SWAPI people list</h2>
+    <table border="2" class="center">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Height</th>
-                <th>Gender</th>
+                <th>Mass</th>
+                <th>Hair Color</th>
+                <th>Skin Color</th>
+                <th>Eye Color</th>
                 <th>Birth year</th>
+                <th>Gender</th>
+                <th>Homeworld</th>
+                <th>Films</th>
+                <th>Species</th>
+                <th>Vehicles</th>
+                <th>Starships</th>
             </tr>            
         </thead>
         <tbody ng-repeat="user in data.results">
-            <tr ng-click="goToLink(user.url)">
-                <td>{{user.name}}</td>
+            <tr>
+                <td>{{getId(user.url)}}</td>
+                <td ng-click="getPersonInfo(user)">{{user.name}}</td>
                 <td>{{user.height}}</td>
-                <td>{{user.gender}}</td>
+                <td>{{user.mass}}</td>
+                <td>{{user.hair_color}}</td>
+                <td>{{user.skin_color}}</td>
+                <td>{{user.eye_color}}</td>
                 <td>{{user.birth_year}}</td>
+                <td>{{user.gender}}</td>
+                <td><a href="#planets/{{getId(user.homeworld)}}">{{user.homeworld_name}}</a></td>
+                <td ng-click="openDialog(user.films)"><a>films...</a></td>
+                <td ng-click="openDialog(user.species)"><a>species...</a></td>
+                <td ng-click="openDialog(user.vehicles)"><a>vehicles...</a></td>
+                <td ng-click="openDialog(user.starships)"><a>starships...</a></td>
             </tr>
         </tbody>
     </table>
-    <div>
-        <input type="button" value="Previous page" ng-disabled="!data.previous" ng-click="goToLink(data.previous)">
-        <input type="button" value="Next page" ng-disabled="!data.next" ng-click="goToLink(data.next)">
+    <div class="center">
+        <input type="button" value="<<" ng-disabled="!data.previous" ng-click="fetchData(data.previous)">
+        <input type="button" value=">>" ng-disabled="!data.next" ng-click="fetchData(data.next)">
     </div>
-    
 </div>
