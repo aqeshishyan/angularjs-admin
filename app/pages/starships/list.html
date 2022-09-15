@@ -1,0 +1,67 @@
+<div ng-controller="starshipsCtrl" ng-init="fetchData()" class="text-center">
+    <div class="container">
+        <h2>SWAPI starships list</h2>
+    </div>
+    <prog-bar show="loading"></prog-bar>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="info">
+                <th>#</th>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+                <th>Cost</th>
+                <th>Length</th>
+                <th>Max speed</th>
+                <th>Crew</th>
+                <th>Passengers</th>
+                <th>Cargo capacity</th>
+                <th>Consumables</th>
+                <th>Hyper rating</th>
+                <th>MGLT</th>
+                <th>Class</th>
+                <th>Pilots</th>
+                <th>Films</th>
+                <th>Created</th>
+                <th>Edited</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="starship in data.results">
+            <tr class="info">
+                <td>{{getId(starship.url)}}</td>
+                <td><a href="#starships/{{getId(starship.url)}}">{{starship.name}}</a></td>
+                <td>{{starship.model}}</td>
+                <td>{{starship.manufacturer}}</td>
+                <td>{{starship.cost_in_credits}}</td>
+                <td>{{starship.length}}</td>
+                <td>{{starship.max_atmosphering_speed}}</td>
+                <td>{{starship.crew}}</td>
+                <td>{{starship.passengers}}</td>
+                <td>{{starship.cargo_capacity}}</td>
+                <td>{{starship.consumables}}</td>
+                <td>{{starship.hyperdrive_rating}}</td>
+                <td>{{starship.MGLT}}</td>
+                <td>{{starship.starship_class}}</td>
+                <td>
+                    <a  class="label"
+                        ng-if="starship.pilots.length"
+                        ng-click="openDialog(starship.pilots, 'Pilots')">
+                        pilots...
+                    </a>
+                    <div ng-if="!starship.pilots.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="starship.films.length"
+                        ng-click="openDialog(starship.films, 'Films')">
+                        films...
+                    </a>
+                    <div ng-if="!starship.films.length">-</div>
+                </td>
+                <td nw-date="starship.created"></td>
+                <td nw-date="starship.edited"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager data="data" fetch="fetchData"></pager>
+</div>

@@ -3,10 +3,87 @@
     text-align: center;
 }
 
-th {
-    padding: 5px;
+h1 {
+    font-size: 100px;
+    line-height: 1;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid cadetblue;
+}
+
+.white-text {
+    color: white;
+}
+
+.table thead tr.info > th {
+    background-color: #9fc6fa;
+}
+
+.table thead tr.info > td {
+    background-color: #d9edf7;
 }
 
 .bold {
     font-weight: bolder;
+}
+
+.dotcarousel {
+    position: relative;
+    left: -9999px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #000000;
+    box-shadow: 9984px 0 0 0 #000000, 9999px 0 0 0 #000000, 10014px 0 0 0 #000000;
+    animation: dotCarousel 1.5s infinite linear;
+}
+
+@keyframes dotCarousel {
+    0% {
+        box-shadow: 9984px 0 0 -1px #000000, 9999px 0 0 1px #000000, 10014px 0 0 -1px #000000;
+    }
+    50% {
+        box-shadow: 10014px 0 0 -1px #000000, 9984px 0 0 -1px #000000, 9999px 0 0 1px #000000;
+    }
+    100% {
+        box-shadow: 9999px 0 0 1px #000000, 10014px 0 0 -1px #000000, 9984px 0 0 -1px #000000;
+    }
+}
+
+.static {
+    height: 10px;
+}
+
+.starwars {
+    background-image: url('starwars-bg.png');
+}
+
+.label {
+  display: inline-block;
+  text-align: center;
+  padding: 2px 4px;
+  font-size: 11.844px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #68aaaf;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.table-info {
+    margin: auto;
+    text-align: center;
+    max-width: 500px;
 }

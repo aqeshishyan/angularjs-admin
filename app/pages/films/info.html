@@ -1,0 +1,32 @@
+<div ng-controller="filmInfoCtrl" class="text-center">
+    <div class="container">
+        <h2>{{film.title || 'loading...'}}</h2>
+    </div>
+    <prog-bar show="!!!film.title"></prog-bar>
+    <table class="table table-bordered table-hover table-info">
+        <thead>
+            <tr class="info"><th>Episode</th><td>{{film.episode_id}}</td></tr>
+            <tr class="info"><th>Opening crawl</th><td nw-collapse="film.opening_crawl">{{film.opening_crawl}}</td></tr>
+            <tr class="info"><th>Director</th><td>{{film.director}}</td></tr>
+            <tr class="info"><th>Producer</th><td>{{film.producer}}</td></tr>
+            <tr class="info"><th>Release date</th><td>{{film.release_date}}</td></tr>
+            <tr class="info"><th>People</th><td>
+                <div ng-class="{'dotcarousel center': !filmData.characters.length}">{{filmData.characters}}</div>
+            </td></tr>
+            <tr class="info"><th>Planets</th><td>
+                <div ng-class="{'dotcarousel center': !filmData.planets.length}">{{filmData.planets}}</div>
+            </td></tr>
+            <tr class="info"><th>Starships</th><td>
+                <div ng-class="{'dotcarousel center': !filmData.starships.length}">{{filmData.starships}}</div>
+            </td></tr>
+            <tr class="info"><th>Vehicles</th><td>
+                <div ng-class="{'dotcarousel center': !filmData.vehicles.length}">{{filmData.vehicles}}</div>
+            </td></tr>
+            <tr class="info"><th>Species</th><td>
+                <div ng-class="{'dotcarousel center': !filmData.species.length}">{{filmData.species}}</div>
+            </td></tr>
+            <tr class="info"><th>Created</th><td nw-date="film.created"></td></tr>
+            <tr class="info"><th>Edited</th><td nw-date="film.edited"></td></tr>
+        </thead>
+    </table>
+</div>

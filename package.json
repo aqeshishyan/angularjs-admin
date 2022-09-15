@@ -9,14 +9,11 @@
     "angular": "^1.8.3",
     "angular-loader": "^1.8.3",
     "angular-route": "^1.8.3",
-    "angular-ui-router": "^1.0.30",
     "ng-dialog": "^1.4.0",
-    "serve": "^14.0.1",
-    "underscore": "^1.13.4"
+    "serve": "^14.0.1"
   },
   "devDependencies": {
     "cpx": "^1.5.0",
-    "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "karma": "^3.1.1",
     "karma-chrome-launcher": "^2.2.0",

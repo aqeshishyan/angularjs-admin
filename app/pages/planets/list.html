@@ -1,0 +1,59 @@
+<div ng-controller="planetsCtrl" ng-init="fetchData()" class="text-center">
+    <div class="container">
+        <h2>SWAPI planets list</h2>
+    </div>
+    <prog-bar show="loading"></prog-bar>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="info">
+                <th>#</th>
+                <th>Name</th>
+                <th>Rotation</th>
+                <th>Orbital</th>
+                <th>Diameter</th>
+                <th>Climate</th>
+                <th>Gravity</th>
+                <th>Terrain</th>
+                <th>Surface</th>
+                <th>Population</th>
+                <th>Residents</th>
+                <th>Films</th>
+                <th>Created</th>
+                <th>Edited</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="planet in data.results">
+            <tr class="info">
+                <td>{{getId(planet.url)}}</td>
+                <td><a href="#planets/{{getId(planet.url)}}">{{planet.name}}</a></td>
+                <td>{{planet.rotation_period}}</td>
+                <td>{{planet.orbital_period}}</td>
+                <td>{{planet.diameter}}</td>
+                <td>{{planet.climate}}</td>
+                <td>{{planet.gravity}}</td>
+                <td>{{planet.terrain}}</td>
+                <td>{{planet.surface_water}}</td>
+                <td>{{planet.population}}</td>
+                <td>
+                    <a  class="label"
+                        ng-if="planet.residents.length"
+                        ng-click="openDialog(planet.residents, 'Residents')">
+                        residents...
+                    </a>
+                    <div ng-if="!planet.residents.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="planet.films.length"
+                        ng-click="openDialog(planet.films, 'Films')">
+                        films...
+                    </a>
+                    <div ng-if="!planet.films.length">-</div>
+                </td>
+                <td nw-date="planet.created"></td>
+                <td nw-date="planet.edited"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager data="data" fetch="fetchData"></pager>
+</div>

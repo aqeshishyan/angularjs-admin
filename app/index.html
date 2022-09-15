@@ -3,28 +3,42 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel app</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
     <link rel='stylesheet' type='text/css' media='screen' href='general.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/css/ngDialog.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/css/ngDialog-theme-default.min.css">
-    <!-- <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script> -->
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src='bootstrap/js/bootstrap.min.js'></script>
     <script src='lib/angular/angular.js'></script>
     <script src='lib/angular-route/angular-route.js'></script>
     <script src='lib/angular-loader/angular-loader.js'></script>
-    <!-- <script src='lib/angular-ui-router/release/angular-ui-router.js'></script> -->
-    <!-- <script src="https://pagecdn.io/lib/underscore/1.13.4/underscore-umd-min.js"></script> -->
-    <script data-require="angular-ui-bootstrap@2.5.0" data-semver="2.5.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src='lib/ng-dialog/js/ngDialog.min.js'></script>
     <script src='app.js'></script>
-    <script src="apiDataService.js"></script>
-    <script src='list/usersListCtrl.js'></script>
-    <script src='userinfo/userInfoCtrl.js'></script>
-    <script src="dialogs/dialogCtrl.js"></script>
-    <script src='nw-dialog-data.js'></script>
+    <script src="services/api-data-service.js"></script>
+    <script src="pages/planets/list.ctrl.js"></script>
+    <script src='pages/planets/info.ctrl.js'></script>
+    <script src='pages/people/list.ctrl.js'></script>
+    <script src='pages/people/info.ctrl.js'></script>
+    <script src='pages/films/list.ctrl.js'></script>
+    <script src='pages/films/info.ctrl.js'></script>
+    <script src='pages/vehicles/list.ctrl.js'></script>
+    <script src='pages/vehicles/info.ctrl.js'></script>
+    <script src='pages/starships/list.ctrl.js'></script>
+    <script src='pages/starships/info.ctrl.js'></script>
+    <script src='pages/species/list.ctrl.js'></script>
+    <script src='pages/species/info.ctrl.js'></script>
+    <script src='directives/nw-dialog.js'></script>
+    <script src='directives/nw-date.js'></script>
+    <script src='directives/nw-collapse.js'></script>
+    <script src="components/progressbar/progBar.js"></script>
+    <script src="components/pager/pager.js"></script>
+    <script src="components/navbar/navbar.js"></script>
+    <nav-bar></nav-bar>
     <div ng-view></div>
 </body>
 </html>

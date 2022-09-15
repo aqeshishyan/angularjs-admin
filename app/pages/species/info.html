@@ -1,0 +1,31 @@
+<div ng-controller="specieInfoCtrl" class="text-center">
+    <div class="container">
+        <h2>{{specie.name || 'loading...'}}</h2>
+    </div>
+    <prog-bar show="!!!specie.name"></prog-bar>
+    <table class="table table-bordered table-hover table-info>
+        <thead>
+            <tr class="info"><th>Classification</th><td>{{specie.classification}}</td></tr>
+            <tr class="info"><th>Designation</th><td>{{specie.designation}}</td></tr>
+            <tr class="info"><th>Height</th><td>{{specie.average_height}}</td></tr>
+            <tr class="info"><th>Skin colors</th><td>{{specie.skin_colors}}</td></tr>
+            <tr class="info"><th>Hair colors</th><td>{{specie.hair_colors}}</td></tr>
+            <tr class="info"><th>Eye colors</th><td>{{specie.eye_colors}}</td></tr>
+            <tr class="info"><th>Lifespan</th><td>{{specie.average_lifespan}}</td></tr>
+            <tr class="info"><th>Language</th><td>{{specie.language}}</td></tr>
+            <tr class="info"><th>Homeworld</th><td>
+                <div ng-class="{'dotcarousel center': !specieData.homeworld}">
+                    {{specieData.homeworld}}
+                </div>
+            </td></tr>
+            <tr class="info"><th>Films</th><td>
+                <div ng-class="{'dotcarousel center': !specieData.films.length}">{{specieData.films}}</div>
+            </td></tr>
+            <tr class="info"><th>People</th><td>
+                <div ng-class="{'dotcarousel center': !specieData.people.length}">{{specieData.people}}</div>
+            </td></tr>
+            <tr class="info"><th>Created</th><td nw-date="specie.created"></td></tr>
+            <tr class="info"><th>Edited</th><td nw-date="specie.edited"></td></tr>
+        </thead>
+    </table>
+</div>

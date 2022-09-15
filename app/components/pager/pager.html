@@ -1,0 +1,8 @@
+<ul class="pager" ng-if="$ctrl.data.previous || $ctrl.data.next">
+    <li>
+        <input type="button" class="btn" value="Prev" ng-disabled="!$ctrl.data.previous" ng-click="$ctrl.fetch($ctrl.data.previous)">
+    </li>
+    <li >
+        <input type="button" class="btn" value="Next" ng-disabled="!$ctrl.data.next" ng-click="$ctrl.fetch($ctrl.data.next)">
+    </li>
+</ul>

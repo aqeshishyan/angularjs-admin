@@ -16,6 +16,21 @@ angular.module('app')
             .catch(err => deferred.reject(err));
 
             return deferred.promise;       
+        },
+        getResources: (arr) => {
+            var deferred = $q.defer();
+            var urls = [];
+            angular.forEach(arr, elem => {
+                urls.push($http({method: 'GET', url: elem}));
+            })
+
+            $q.all(urls)
+            .then(res => {
+                deferred.resolve(res);
+            })
+            .catch(err => deferred.reject(err));
+
+            return deferred.promise;
         }
     }
 }])

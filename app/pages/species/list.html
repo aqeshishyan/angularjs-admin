@@ -1,0 +1,67 @@
+<div ng-controller="speciesCtrl" ng-init="fetchData()" class="text-center">
+    <div class="container">
+        <h2>SWAPI species list</h2>
+    </div>
+    <prog-bar show="loading"></prog-bar>
+    <table class="table table-bordered table-hover">        
+        <thead>
+            <tr class="info">
+                <th>#</th>
+                <th>Name</th>
+                <th>Classification</th>
+                <th>Designation</th>
+                <th>Height</th>
+                <th>Skin colors</th>
+                <th>Hair colors</th>
+                <th>Eye colors</th>
+                <th>Lifespan</th>
+                <th>Language</th>
+                <th>Homeworld</th>
+                <th>Films</th>
+                <th>People</th>
+                <th>Created</th>
+                <th>Edited</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="specie in data.results">
+            <tr class="info">
+                <td>{{getId(specie.url)}}</td>
+                <td><a href="#species/{{getId(specie.url)}}">{{specie.name}}</a></td>
+                <td>{{specie.classification}}</td>
+                <td>{{specie.designation}}</td>
+                <td>{{specie.average_height}}</td>
+                <td>{{specie.skin_colors}}</td>
+                <td>{{specie.hair_colors}}</td>
+                <td>{{specie.eye_colors}}</td>
+                <td>{{specie.average_lifespan}}</td>
+                <td>{{specie.language}}</td>
+                <td>
+                    <a  ng-if="specie.homeworld"
+                        href="#planets/{{getId(specie.homeworld)}}">
+                        {{specie.homeworld_name}}
+                    </a>
+                    <div ng-if="!specie.homeworld">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="specie.people.length"
+                        ng-click="openDialog(specie.people, 'People')">
+                        people...
+                    </a>
+                    <div ng-if="!specie.people.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="specie.films.length"
+                        ng-click="openDialog(specie.films, 'Films')">
+                        films...
+                    </a>
+                    <div ng-if="!specie.films.length">-</div>
+                </td>
+                <td nw-date="specie.created"></td>
+                <td nw-date="specie.edited"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager data="data" fetch="fetchData"></pager>
+</div>

@@ -1,0 +1,80 @@
+<div ng-controller="filmsCtrl as ctrl" ng-init="fetchData()" class="text-center">
+    <div class="container">
+        <h2>SWAPI films list</h2>
+    </div>
+    <prog-bar show="loading"></prog-bar>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="info">
+                <th>#</th>
+                <th>Title</th>
+                <th>Episode</th>
+                <th>Opening crawl</th>
+                <th>Director</th>
+                <th>Producer</th>
+                <th>Release date</th>
+                <th>People</th>
+                <th>Planets</th>
+                <th>Starships</th>
+                <th>Vehicles</th>
+                <th>Species</th>
+                <th>Created</th>
+                <th>Edited</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="film in data.results">
+            <tr class="info">
+                <td>{{getId(film.url)}}</td>
+                <td><a href="#films/{{getId(film.url)}}">{{film.title}}</a></td>
+                <td>{{film.episode_id}}</td>
+                <td nw-collapse="film.opening_crawl">{{film.opening_crawl}}</td>
+                <td>{{film.director}}</td>
+                <td>{{film.producer}}</td>
+                <td>{{film.release_date}}</td>
+                <td>
+                    <a  class="label"
+                        ng-if="film.characters.length"
+                        ng-click="openDialog(film.characters, 'People')">
+                        people...
+                    </a>
+                    <div ng-if="!film.characters.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="film.planets.length"
+                        ng-click="openDialog(film.planets, 'Planets')">
+                        planets...
+                    </a>
+                    <div ng-if="!film.planets.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="film.starships.length"
+                        ng-click="openDialog(film.starships, 'Starships')">
+                        starships...
+                    </a>
+                    <div ng-if="!film.starships.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="film.vehicles.length"
+                        ng-click="openDialog(film.vehicles, 'Vehicles')">
+                        vehicles...
+                    </a>
+                    <div ng-if="!film.vehicles.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="film.species.length"
+                        ng-click="openDialog(film.species, 'Species')">
+                        species...
+                    </a>
+                    <div ng-if="!film.species.length">-</div>
+                </td>
+                <td nw-date="film.created"></td>
+                <td nw-date="film.edited"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager data="data" fetch="fetchData"></pager>
+</div>

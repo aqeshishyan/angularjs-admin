@@ -1,0 +1,37 @@
+<div ng-controller="userInfoCtrl" class="text-center">
+    <div class="container">
+        <h2>{{person.name || 'loading...'}}</h2>
+    </div>
+    <prog-bar show="!!!person.name"></prog-bar>
+    <table class="table table-bordered table-hover table-info">
+        <thead>
+            <tr class="info"><th>Height</th><td>{{person.height}}</td></tr>
+            <tr class="info"><th>Mass</th><td>{{person.mass}}</td></tr>
+            <tr class="info"><th>Hair color</th><td>{{person.hair_color}}</td></tr>
+            <tr class="info"><th>Skin color</th><td>{{person.skin_color}}</td></tr>
+            <tr class="info"><th>Eye color</th><td>{{person.eye_color}}</td></tr>
+            <tr class="info"><th>Birth year</th><td>{{person.birth_year}}</td></tr>
+            <tr class="info"><th>Gender</th><td>{{person.gender}}</td></tr>
+            <tr class="info"><th>Homeworld</th><td>
+                <div 
+                    ng-class="{'dotcarousel center': !personData.films.length}">
+                    {{personData.homeworld}}
+                </div>
+            </td></tr>
+            <tr class="info"><th>Films</th><td>
+                <div ng-class="{'dotcarousel center': !personData.films.length}">{{personData.films}}</div>
+            </td></tr>
+            <tr class="info"><th>Species</th><td>
+                <div ng-class="{'dotcarousel center': !personData.films.length}">{{personData.species}}</div>
+            </td></tr>
+            <tr class="info"><th>Vehicles</th><td>
+                <div ng-class="{'dotcarousel center': !personData.films.length}">{{personData.vehicles}}</div>
+            </td></tr>
+            <tr class="info"><th>Starships</th><td>
+                <div ng-class="{'dotcarousel center': !personData.films.length}">{{personData.starships}}</div>
+            </td></tr>            
+            <tr class="info"><th>Created</th><td nw-date="person.created"></td></tr>            
+            <tr class="info"><th>Edited</th><td nw-date="person.edited"></td></tr>            
+        </thead>
+    </table>
+</div>

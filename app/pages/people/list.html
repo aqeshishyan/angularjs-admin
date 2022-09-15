@@ -1,0 +1,83 @@
+<div ng-controller="peopleListCtrl" ng-init="fetchData()" class="text-center">
+    <div >
+        <h2>SWAPI people list</h2>
+    </div>
+    <prog-bar show="loading"></prog-bar>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="info">
+                <th>#</th>
+                <th>Name</th>
+                <th>Height</th>
+                <th>Mass</th>
+                <th>Hair Color</th>
+                <th>Skin Color</th>
+                <th>Eye Color</th>
+                <th>Birth year</th>
+                <th>Gender</th>
+                <th>Homeworld</th>
+                <th>Films</th>
+                <th>Species</th>
+                <th>Vehicles</th>
+                <th>Starships</th>
+                <th>Created</th>
+                <th>Edited</th>
+            </tr>            
+        </thead>
+        <tbody ng-repeat="person in data.results">
+            <tr class="info">
+                <td>{{getId(person.url)}}</td>
+                <td><a href="#people/{{getId(person.url)}}">{{person.name}}</a></td>
+                <td>{{person.height}}</td>
+                <td>{{person.mass}}</td>
+                <td>{{person.hair_color}}</td>
+                <td>{{person.skin_color}}</td>
+                <td>{{person.eye_color}}</td>
+                <td>{{person.birth_year}}</td>
+                <td>{{person.gender}}</td>
+                <td>
+                    <a href="#planets/{{getId(person.homeworld)}}">
+                        <div ng-class="{'dotcarousel center': !person.homeworld_name}">
+                            {{person.homeworld_name}}
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a  class="label" 
+                        ng-if="person.films.length"
+                        ng-click="openDialog(person.films, 'Films')">
+                        films...
+                    </a>
+                    <div ng-if="!person.films.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="person.species.length"
+                        ng-click="openDialog(person.species, 'Species')">
+                        species...
+                    </a>
+                    <div ng-if="!person.species.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="person.vehicles.length"
+                        ng-click="openDialog(person.vehicles, 'Vehicles')">
+                        vehicles...
+                    </a>
+                    <div ng-if="!person.vehicles.length">-</div>
+                </td>
+                <td>
+                    <a  class="label"
+                        ng-if="person.starships.length"
+                        ng-click="openDialog(person.starships, 'Starships')">
+                        starships...
+                    </a>
+                    <div ng-if="!person.starships.length">-</div>
+                </td>
+                <td nw-date="person.created"></td>
+                <td nw-date="person.edited"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pager data="data" fetch="fetchData"></pager>
+</div>

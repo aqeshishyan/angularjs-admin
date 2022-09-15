@@ -2,18 +2,14 @@
 
 var app = angular.module('app');
 
-app.controller('usersListCtrl', ['$scope', '$location', 'apiDataService', 'ngDialog', function ($scope, $location, service, ngDialog) {
-
-  $scope.getPersonInfo = (user) => {
-    var id = $scope.getId(user.url);
-    $location.path($location.path() + '/' + id);
-  }
+app.controller('peopleListCtrl', ['$scope', 'apiDataService', 'ngDialog', function ($scope, service, ngDialog) {
 
   $scope.fetchData = (link) => {
+    $scope.loading = true;
     const promise = link ? service.getApiData(link) : service.getApiData(null, 'people');
     promise.then(res => {
+      $scope.loading = false;
       res.results.map((person) => {
-        person.homeworld_name = 'loading...';
         service.getApiData(person.homeworld).then(res => {
           person.homeworld_name = res.name;
         })
@@ -29,14 +25,16 @@ app.controller('usersListCtrl', ['$scope', '$location', 'apiDataService', 'ngDia
     return arr[arr.length - 1];
   }
 
-  $scope.openDialog = function(data) {
+  $scope.openDialog = (data, title) => {
     ngDialog.open({
-      template: '<nw-dialog-data></nw-dialog-data>',
-      controller: 'dialogCtrl',
+      template: '<nw-dialog></nw-dialog>',
       plain: true,
       className: 'ngdialog-theme-default',
       scope: $scope,
-      data: data
+      data: {
+        data: data,
+        title: title
+      }
     });
   };
 }])

@@ -1,0 +1,26 @@
+<div ng-controller="planetInfoCtrl" class="text-center">
+    <div>
+        <h2>{{planet.name || 'loading...'}}</h2>
+    </div>
+    <prog-bar show="!!!planet.name"></prog-bar>
+    <table class="table table-bordered table-hover table-info">
+        <thead>
+            <tr class="info"><th>Rotation</th><td>{{planet.rotation_period}}</td></tr>
+            <tr class="info"><th>Orbital</th><td>{{planet.orbital_period}}</td></tr>
+            <tr class="info"><th>Diameter</th><td>{{planet.diameter}}</td></tr>
+            <tr class="info"><th>Climate</th><td>{{planet.climate}}</td></tr>
+            <tr class="info"><th>Gravity</th><td>{{planet.gravity}}</td></tr>
+            <tr class="info"><th>Terrain</th><td>{{planet.terrain}}</td></tr>
+            <tr class="info"><th>Surface</th><td>{{planet.surface_water}}</td></tr>
+            <tr class="info"><th>Population</th><td>{{planet.population}}</td></tr>
+            <tr class="info"><th>Films</th><td>
+                <div ng-class="{'dotcarousel center': !planetData.films.length}">{{planetData.films}}</div>
+            </td></tr>
+            <tr class="info"><th>Residents</th><td>
+                <div ng-class="{'dotcarousel center': !planetData.residents.length}">{{planetData.residents}}</div>
+            </td></tr>
+            <tr class="info"><th>Created</th><td nw-date="planet.created"></td></tr>
+            <tr class="info"><th>Edited</th><td nw-date="planet.edited"></td></tr>
+        </thead>
+    </table>
+</div>

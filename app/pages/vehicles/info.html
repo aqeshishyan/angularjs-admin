@@ -1,0 +1,28 @@
+<div ng-controller="vehicleInfoCtrl" class="text-center">
+    <div class="container">
+        <h2>{{vehicle.name || 'loading...'}}</h2>
+    </div>
+    <prog-bar show="!!!vehicle.name"></prog-bar>
+    <table class="table table-bordered table-hover table-info table-info">
+        <thead>
+            <tr class="info"><th>Model</th><td>{{vehicle.model}}</td></tr>
+            <tr class="info"><th>Manufacturer</th><td>{{vehicle.manufacturer}}</td></tr>
+            <tr class="info"><th>Cost</th><td>{{vehicle.cost_in_credits}}</td></tr>
+            <tr class="info"><th>Length</th><td>{{vehicle.length}}</td></tr>
+            <tr class="info"><th>Max speed</th><td>{{vehicle.max_atmosphering_speed}}</td></tr>
+            <tr class="info"><th>Crew</th><td>{{vehicle.crew}}</td></tr>
+            <tr class="info"><th>Passengers</th><td>{{vehicle.passengers}}</td></tr>
+            <tr class="info"><th>Cargo capacity</th><td>{{vehicle.cargo_capacity}}</td></tr>
+            <tr class="info"><th>Consumables</th><td>{{vehicle.consumables}}</td></tr>
+            <tr class="info"><th>Class</th><td>{{vehicle.vehicle_class}}</td></tr>
+            <tr class="info"><th>Films</th><td>
+                <div ng-class="{'dotcarousel center': !vehicleData.films.length}">{{vehicleData.films}}</div>
+            </td></tr>
+            <tr class="info"><th>Pilots</th><td>
+                <div ng-class="{'dotcarousel center': !vehicleData.pilots.length}">{{vehicleData.pilots}}</div>
+            </td></tr>
+            <tr class="info"><th>Created</th><td nw-date="vehicle.created"></td></tr>
+            <tr class="info"><th>Edited</th><td nw-date="vehicle.edited"></td></tr>
+        </thead>
+    </table>
+</div>
